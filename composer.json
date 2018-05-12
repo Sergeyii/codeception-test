@@ -1,0 +1,11 @@
+{
+    "name": "Codeception test project",
+    "require": {
+        "yiisoft/yii2": "2.0.15.1",
+        "phpunit/phpunit": "6.5.8",
+        "phpunit/dbunit": "3.0.3",
+        "codeception/codeception": "2.4.1",
+        "codeception/verify": "^1.0",
+        "codeception/specify": "1.0"
+    }
+}
