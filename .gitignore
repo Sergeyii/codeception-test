@@ -17,3 +17,6 @@ Thumbs.db
 
 # composer vendor dir
 /vendor
+
+# Sqlite databases dir
+/data
