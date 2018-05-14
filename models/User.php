@@ -11,6 +11,10 @@ use yii\db\ActiveRecord;
 
 class User extends ActiveRecord
 {
+    public static function testEcho(){
+        echo 'Hello from User class!!!';
+    }
+
     public function rules()
     {
         return [
