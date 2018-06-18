@@ -23,9 +23,9 @@ class UserTest extends \Codeception\Test\Unit
     {
         $user = new User();
 
-        $this->assertFalse($user->validate(), 'validate empty username and email');
-        $this->assertArrayHasKey('username', $user->getErrors(), 'check empty username error');
-        $this->assertArrayHasKey('email', $user->getErrors(), 'check empty email error');
+        expect('model is invalid', $user->validate())->false();
+        expect('username has error', $user->getErrors())->hasKey('username');
+        expect('email has error', $user->getErrors())->hasKey('email');
         $user->save();
     }
 
@@ -36,6 +36,6 @@ class UserTest extends \Codeception\Test\Unit
             'email' => 'user@email.com',
         ]);
 
-        $this->assertTrue($user->save(), 'model is saved');
+        expect('model is saved', $user->save())->true();
     }
 }
