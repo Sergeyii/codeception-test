@@ -19,4 +19,4 @@ Thumbs.db
 /vendor
 
 # Sqlite databases dir
-/data
+.data
