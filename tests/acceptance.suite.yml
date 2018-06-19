@@ -5,8 +5,9 @@
 # If you need both WebDriver and PHPBrowser tests - create a separate suite.
 
 actor: AcceptanceTester
+bootstrap: ../_bootstrap.php
 modules:
     enabled:
         - PhpBrowser:
-            url: http://localhost/myapp
+            url: https://yandex.ru
         - \Helper\Acceptance
