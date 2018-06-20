@@ -8,6 +8,24 @@ actor: AcceptanceTester
 bootstrap: ../_bootstrap.php
 modules:
     enabled:
-        - PhpBrowser:
-            url: https://yandex.ru
+#        - PhpBrowser
+        - WebDriver:
+            url: 'https://yandex.ru'
+            browser: 'chrome'
+            restart: true
+            window_size: 1024x768
         - \Helper\Acceptance
+    config:
+#        - PhpBrowser:
+#            url: https://yandex.ru
+#        - WebDriver:
+#            url: 'https://yandex.ru'
+#            browser: 'chrome'
+#            restart: true
+#            window_size: 1024x768
+
+extensions:
+    enabled:
+        - Codeception\Extension\RunProcess:
+            - java -jar C:\Users\NextGenThunder\AppData\Roaming\Composer\vendor\se\selenium-server-standalone\bin\selenium-server-standalone.jar
+            - chromedriver

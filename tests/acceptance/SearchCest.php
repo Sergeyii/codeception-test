@@ -22,14 +22,28 @@ I see in address '/search/?text=Codeception'
 I see on page 'Codeception - BDD-style php testing'
 
 */
-$I = new AcceptanceTester($scenario);
 
-$I->wantTo('ensure that search works');
-$I->amOnPage('/');
-$I->see('Найти');
+class SearchCest
+{
+    public function _before(AcceptanceTester $I)
+    {
+    }
 
-$I->fillField('input[name=text]', 'Codeception');
-$I->click('button[type=submit]');
+    public function _after(AcceptanceTester $I)
+    {
+    }
 
-$I->seeInCurrentUrl('text=Codeception');
-$I->see('Codeception — тестирование по-новому');
+    // tests
+    public function findWordInYandexTest(AcceptanceTester $I)
+    {
+        $I->wantTo('ensure that search works');
+        $I->amOnPage('/');
+        $I->see('Найти');
+
+        $I->fillField('input[name=text]', 'Codeception');
+        $I->click('button[type=submit]');
+        $I->wait(3);
+        $I->seeInCurrentUrl('text=Codeception');
+        $I->see('Codeception — тестирование по-новому');
+    }
+}
